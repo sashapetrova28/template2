@@ -2,36 +2,103 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="./images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    
+    <link rel="stylesheet" href="/src/index.css">
+    
+    <title>Spotify App</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <body class="app">
+    
+    <header class="header">
+      <a href="" class="header__logo link" href="/">
+        <img src="./images/logo.png" alt="Лого" width="32" height="32" />
+        <h1 class="header__title">Spotify App</h1>
+      </a>
+      <input type="search" class="header__search" placeholder="Поиск музыки" />
+      <nav class="header__navigation">
+        <a href="/" class="link">Профиль</a>
+      </nav>
+    </header>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <aside class="accordion">
+      <ul class="tags">
+        <li class="tag" tabindex="0">Главная</li>
+        <li class="tag" tabindex="0">Моя медиатека</li>
+        <li class="tag" tabindex="0">Плейлисты</li>
+      </ul>
+    </aside>
+    
+    <main class="content">
+      <h2 class="category">Top Lists</h2>
+      <div class="element">
+        <img src="./images/music-90s.png" alt="music 90s" class="element__image">
+        <div class="element__container">
+          <h4 class="element__subtitle"><b>Музыка 90-х</b></h4>
+          <p class="element__text">Популярные и любимые треки девяностых</p>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/best2021.jpg" alt="best music 2021" class="element__image">
+        <div class="element__container">
+          <h4 class="element__subtitle"><b>The best music 2021</b></h4>
+          <p class="element__text">Лучшие треки прошлого года. Dua Lipa, Måneskin, MORGENSHTERN и многие другие</p>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/new-russia.png" alt="new russia" class="element__image">
+        <div class="element__container">
+          <h4 class="element__subtitle"><b>Новинки Россия</b></h4>
+          <p class="element__text">Новые имена, новые исполнители и новые треки</p>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/dance-music.png" alt="dance music" class="element__image">
+        <div class="element__container">
+          <h4 class="element__subtitle"><b>Dance music</b></h4>
+          <p class="element__text">Треки, которые точно заставять вас танцевать, а беззаботное настроение гарантировано</p>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/top100.png" alt="top-200" class="element__image">
+        <div class="element__container">
+          <h4 class="element__subtitle"><b>Tоп-100 Россия</b></h4>
+          <p class="element__text">Самые популярные и актуальные треки. Макс Корж, Niletto, Клава Кока, Rauf&Failk</p>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <h2 class="category">Музыка для тебя</h2>
+      <div class="elements">
+        <div class="element">
+          <img src="./images/1-playlist.png" alt="playlist 1" class="element__image">
+          <div class="element__container">
+            <h4 class="element__subtitle"><b>Плейлист дня 1</b></h4>
+            <p class="element__text">Billie Eilish, The Weeknd, Rihanna</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./images/2-playlist.png" alt="playlist 2" class="element__image">
+          <div class="element__container">
+            <h4 class="element__subtitle"><b>Плейлист дня 2</b></h4>
+            <p class="element__text">Jony, EMIN, Мот, Макс Корж</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./images/3-playlist.png" alt="playlist 3" class="element__image">
+          <div class="element__container">
+            <h4 class="element__subtitle"><b>Плейлист дня 3</b></h4>
+            <p class="element__text">Imagine Dragons, Dua Lipa, BTS</p>
+          </div>
+        </div>
+      </div>
+    </main>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <footer class="footer">
+      <p class="footer__subtitle">©Sasha Petrova 2022</p>
+      <nav class="footer__navigation">
+        <a class="link" href="./">Служба поддержки</a>
+      </nav>
+    </footer>
   </body>
 </html>
