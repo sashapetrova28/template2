@@ -25,7 +25,6 @@ const fetchTemplate = async (url) => {
             if (result.status === 404) {
                throw new Error("There's no data. Try to reload page.")
             } else throw new Error("Something went wrong");
-
    }
 }
 
@@ -92,7 +91,7 @@ const createAlbums = async () => {
          <div class="content__item">
             <img src='${data.albums.items[i].images[1].url}' data-id='${data.albums.items[i].id}' class="playlist__image">
             <div class="playlist__play">
-               <img src="./images/play.svg" alt="" class="play">
+               <img src="./images/button-play.svg" alt="" class="play">
             </div>
             <div class="sasha"></div>     
             <h3 class="playlist__title">${data.albums.items[i].name}</h3>
