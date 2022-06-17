@@ -17,29 +17,78 @@ const fetchTemplate = async (url) => {
 
       if (result.status === 401) {
          throw new Error("Bad or expired token. This can happen if the user revoked a token or the access token has expired. You should re-authenticate the user.")
-      } else
-         if (result.status === 403) {
-            throw new Error
-               ("Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Unfortunately, re-authenticating the user won't help here.")
-         } else
-            if (result.status === 404) {
-               throw new Error("There's no data. Try to reload page.")
-            } else throw new Error("Something went wrong");
+      } else if (result.status === 403) {
+         throw new Error
+            ("Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Unfortunately, re-authenticating the user won't help here.")
+      } else if (result.status === 404) {
+         throw new Error("There's no data. Try to reload page.")
+      } else throw new Error("Something went wrong");
    }
 }
 
-const getToken = async () => {
-   const result = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-         'Content-Type': 'application/x-www-form-urlencoded',
-         'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
-      },
-      body: 'grant_type=client_credentials'
+//получаем куки
+function getCookie() {
+   let result;
+   const cookie = 'token';
+   const name = cookie + '=';
+   const decode = decodeURIComponent(document.cookie);
+   const array = decode.split('; ');
+   array.forEach((value) => {
+      if (value.indexOf(name) === 0) {
+         result = value.substring(name.length);
+      }
    });
+  
+   return result;
+}
 
-   const data = await result.json();
-   return data.access_token;
+//записываем куки
+function setCookie(name, value, options = {}) {
+   options = {
+      path: '/',
+      SameSite: null,
+      ...options,
+   };
+  
+   if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+   }
+  
+   let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+  
+   for (let optionKey in options) {
+      updatedCookie += '; ' + optionKey;
+      let optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += '=' + optionValue;
+      }
+   }
+  
+   document.cookie = updatedCookie;
+}
+
+//получаем токен
+async function getToken() {
+   if (getCookie()) {
+      return getCookie();
+   } else {
+      try {
+         const res = await fetch('https://accounts.spotify.com/api/token', {
+         method: 'POST',
+         body: 'grant_type=client_credentials',
+         headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Basic ' + btoa(client_id + ':' + client_secret),
+         },
+      });
+      const result = await res.json();
+      setCookie('token', result.access_token, { 'max-age': result.expires_in });
+  
+      return getCookie();
+      } catch (e) {
+        console.log(e);
+      }
+   }
 }
 
 export const getAlbums = async () => {
