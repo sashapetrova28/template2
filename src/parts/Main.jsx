@@ -27,21 +27,21 @@ const Main = () => {
    }, []);
 
    return (
-      <main class="main">
-    <div class="main__new">
-       <h2 class="main__title">Новинки</h2>
-       <div class="main__playlists">
+   <main className="main">
+    <div className="main__new">
+       <h2 className="main__title">Новинки</h2>
+       <div className="main__playlists">
           {albums.map(item => (
-             <div class="main__item" key={item.id}>
+             <div className="main__item" key={item.id}>
                 <img
                    src={item.images[1].url}
-                   onClick={!pending && (() => { setTracks(item.id) })}
-                   class="playlist__image" />
-                <div class="playlist__play">
-                   <img src={buttonPlay} alt="" class="play" />
+                   onClick={() => { if (!pending) { setTracks(item.id) }}}
+                   className="playlist__image" />
+                <div className="playlist__play">
+                   <img src={buttonPlay} alt="" className="play" />
                 </div>
-                <h3 class="playlist__title">{item.name}</h3>
-                <p class="playlist__description">Исполнитель: {item.artists[0].name}</p>
+                <h3 className="playlist__title">{item.name}</h3>
+                <p className="playlist__description">Исполнитель: {item.artists[0].name}</p>
              </div>
           ))}
        </div>

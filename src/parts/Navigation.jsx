@@ -8,39 +8,39 @@ import fav from '../images/fav.svg'
 
 const Navbar = () => {
    return (
-      <nav class="navigation">
-         <ul class="element__list">
-         <li class="nav__element"> 
-            <a href=" " class="nav__link active">
-               <img class="nav__img" src={home1} alt="img" />
-               <span class="nav__title">Главная</span>
+      <nav className="navigation">
+         <ul className="element__list">
+         <li className="nav__element"> 
+            <a href="#" className="nav__link active">
+               <img className="nav__img" src={home1} alt="img" />
+               <span className="nav__title">Главная</span>
             </a>
          </li>
-         <li class="nav__element"> 
-            <a href=" " class="nav__link active">
-               <img class="nav__img" src={search1} alt="img" />
-               <span class="nav__title">Поиск</span>
+         <li className="nav__element"> 
+            <a href="#" className="nav__link active">
+               <img className="nav__img" src={search1} alt="img" />
+               <span className="nav__title">Поиск</span>
             </a>
          </li>
-         <li class="nav__element"> 
-            <a href=" " class="nav__link active">
-               <img class="nav__img" src={library} alt="img" />
-               <span class="nav__title">Моя медиатека</span>
+         <li className="nav__element"> 
+            <a href="#" className="nav__link active">
+               <img className="nav__img" src={library} alt="img" />
+               <span className="nav__title">Моя медиатека</span>
             </a>
          </li>
          </ul>
 
-         <ul class="element__list">
-         <li class="nav__element"> 
-            <a href=" " class="nav__link active">
-               <img class="nav__img" src={createPlaylist} alt="img" />
-               <span class="nav__title">Создать плейлист</span>
+         <ul className="element__list">
+         <li className="nav__element"> 
+            <a href="#" className="nav__link active">
+               <img className="nav__img" src={createPlaylist} alt="img" />
+               <span className="nav__title">Создать плейлист</span>
             </a>
          </li>
-         <li class="nav__element"> 
-               <a href=" " class="nav__link active">
-               <img class="nav__img" src={fav} alt="img" />
-               <span class="nav__title">Любимые треки</span>
+         <li className="nav__element"> 
+               <a href="#" className="nav__link active">
+               <img className="nav__img" src={fav} alt="img" />
+               <span className="nav__title">Любимые треки</span>
             </a>
             </li>
          </ul>
